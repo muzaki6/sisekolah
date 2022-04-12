@@ -414,23 +414,17 @@
 </head>
 
 <body class="antialiased" style="background-image: url('storage/image-background/background1.jpg')">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid bg-dark col-md-10">
-            <a class="navbar-brand" href="#">
-                <font size="3">Sistem Informasi Sekolah</font>
-            </a>
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="bg-dark col-md-10">
+            <a class="navbar-brand" href="#">Sistem Informasi Sekolah</a>
         </div>
         <div class="collapse navbar-collapse col-md-2 justify-content-end" id="navbarScroll">
             <ul class="navbar-nav" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ route('login') }}">
-                        <font size="2">Login</font>
-                    </a>
+                    <a class="nav-link" aria-current="page" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <font size="2">Register</font>
-                    </a>
+                    <a class="nav-link" href="#">Register</a>
                 </li>
             </ul>
         </div>
@@ -450,13 +444,13 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-8">
-                <h5><b>PROFIL SEKOLAH</b></h5>
+                <h6><b>PROFIL SEKOLAH</b></h6>
             </div>
             <div class="col-md-4">
                 <h3></h3>
             </div>
             <div class="col-md-12" style="text-align: justify;">
-                <font size="3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                <font size="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                     has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                     galley of type and scrambled it to make a type specimen book. It has survived not only five
                     centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was
@@ -471,10 +465,10 @@
                     Ipsum.</font>
             </div>
             <div class="col-md-12 mt-3">
-                <h5><b>0353-XXXXXXXXX</b></h5>
+                <h6><b>0353-0000000</b></h6>
             </div>
             <div class="col-md-12 mt-3">
-                <h5><b>JALAN MERDEKA UTARA NO. 01 KOTA BARU</b></h5>
+                <h6><b>JALAN MERDEKA UTARA NO. 01 KOTA BARU</b></h6>
             </div>
         </div>
     </div>
