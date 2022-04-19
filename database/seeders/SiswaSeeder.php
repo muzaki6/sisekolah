@@ -18,7 +18,7 @@ class SiswaSeeder extends Seeder
     {
         for ($i = 1; $i <= 10; $i++) {
             $no_induk = '2022' . '01' . $i;
-            $nama = 'Muzaki' . $i;
+            $nama = '' . $i;
             $jenis_kelamin = 'Laki-laki' . $i;
             $agama = 'Muzaki' . $i;
             $alamat = 'Muzaki' . $i;
