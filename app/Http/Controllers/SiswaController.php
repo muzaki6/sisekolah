@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
 {
@@ -14,7 +15,13 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('siswa.index');
+        return view('siswa.index', [
+            'siswas' => DB::table('siswas')->orderBy('created_at', 'DESC')->paginate(5)
+        ]);
+
+        // return view('siswa.index', [
+        //     'siswas' => Siswa::with('siswas')->orderBy('created_at', 'DESC')->paginate(10)
+        // ]);
     }
 
     /**

@@ -34,23 +34,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>20220001</td>
-                                    <td>Osaman Musa</td>
-                                    <td>Laki-Laki</td>
-                                    <td>Islam</td>
-                                    <td>Jakarta</td>
-                                    <td>2022</td>
-                                    <td>2022-06-02</td>
-                                    <td>2022-06-02</td>
-                                    <td class="text-left">
-                                        <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="#" class="btn btn-danger btn-sm">Edit</a>
-                                    </td>
-                                </tr>
+                                @foreach ($siswas as $key => $siswa)
+                                    <tr>
+                                        <th scope="row">{{ $siswas->firstItem() + $key }}</th>
+                                        <td>{{ $siswa->no_induk }}</td>
+                                        <td>{{ $siswa->nama }}</td>
+                                        <td>{{ $siswa->jenis_kelamin }}</td>
+                                        <td>{{ $siswa->agama }}</td>
+                                        <td>{{ $siswa->alamat }}</td>
+                                        <td>{{ $siswa->tahun_masuk }}</td>
+                                        <td>{{ $siswa->created_at }}</td>
+                                        <td>{{ $siswa->updated_at }}</td>
+                                        <td class="text-center">
+                                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="#" class="btn btn-danger btn-sm">Hapus</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                        <div class="float-right">
+                            {{ $siswas->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
