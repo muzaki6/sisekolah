@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -53,7 +53,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="float-right">
+                        <div class="d-flex justify-content-end">
                             {{ $siswas->links() }}
                         </div>
                     </div>

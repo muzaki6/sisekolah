@@ -16,7 +16,7 @@ class SiswaController extends Controller
     public function index()
     {
         return view('siswa.index', [
-            'siswas' => DB::table('siswas')->orderBy('created_at', 'DESC')->paginate(5)
+            'siswas' => DB::table('siswas')->orderBy('created_at', 'DESC')->paginate(10)
         ]);
 
         // return view('siswa.index', [
@@ -88,5 +88,10 @@ class SiswaController extends Controller
     public function destroy(Siswa $siswa)
     {
         //
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }
