@@ -1,60 +1,67 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-6 margin-tb">
-            <div class="pull-left">
-                <h2><i class="fas fa-user"></i> Users Management</h2>
-            </div>
-        </div>
-        <div class="col-lg-6 margin-tb text-end">
-            <div class="pull-left">
-                <a class="btn btn-success text-end" href="{{ route('users.create') }}">
-                    <i class="fas fa-user-plus"></i>
-                    Create New User</a>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Data User</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-4 col-md-3 col-lg-2">
+                                <a href="{{ route('users.create') }}" class="btn btn-dark btn-sm btn-block mb-2">Tambah
+                                    User</a>
+                            </div>
+                        </div>
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <p>{{ $message }}</p>
+                            </div>
+                        @endif
+                        <table class="table caption-top">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Roles</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $key => $user)
+                                    <tr>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>
+                                            @if (!empty($user->getRoleNames()))
+                                                @foreach ($user->getRoleNames() as $v)
+                                                    <span class="badge bg-success">{{ $v }}</span>
+                                                @endforeach
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-outline-info btn-sm"
+                                                href="{{ route('users.show', $user->id) }}">Show</a>
+                                            @can('user-edit')
+                                                <a class="btn btn-outline-warning btn-sm"
+                                                    href="{{ route('users.edit', $user->id) }}">Edit</a>
+                                            @endcan
+                                            @can('user-delete')
+                                                {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
+                                                {!! Form::submit('Delete', ['class' => 'btn btn-outline-danger btn-sm']) !!}
+                                                {!! Form::close() !!}
+                                            @endcan
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
-    <table class="table table-bordered mt-2">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Roles</th>
-            <th width="280px">Action</th>
-        </tr>
-        @foreach ($data as $key => $user)
-            <tr>
-                <td>{{ ++$i }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>
-                    @if (!empty($user->getRoleNames()))
-                        @foreach ($user->getRoleNames() as $v)
-                            <span class="badge bg-success"><b>{{ $v }}</b></span>
-                        @endforeach
-                    @endif
-                </td>
-                <td>
-
-                    <a class="btn btn-info" href="{{ route('users.show', $user->id) }}">Show</a>
-                    @can('user-edit')
-                        <a class="btn btn-warning" href="{{ route('users.edit', $user->id) }}">Edit</a>
-                    @endcan
-                    @can('user-delete')
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id], 'style' => 'display:inline']) !!}
-                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                        {!! Form::close() !!}
-                    @endcan
-                </td>
-            </tr>
-        @endforeach
-    </table>
     {!! $data->render() !!}
 @endsection

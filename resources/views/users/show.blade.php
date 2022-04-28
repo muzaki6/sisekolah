@@ -1,38 +1,41 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="row text-dark">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show User</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('users.index') }}"> Back</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {{ $user->name }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Email:</strong>
-                {{ $user->email }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Roles:</strong>
-                @if (!empty($user->getRoleNames()))
-                    @foreach ($user->getRoleNames() as $v)
-                        <label class="badge badge-success">{{ $v }}</label>
-                    @endforeach
-                @endif
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        Show User
+                        <a href="{{ route('users.index') }}" style="float: right; color:red;"><i
+                                class="fa-solid fa-circle-xmark"></i></a>
+                    </div>
+                    <div class="card-body">
+                        <table class="d-flex justify-content-start">
+                            <tr>
+                                <td>Name</td>
+                                <td>:</td>
+                                <td>{{ $user->name }}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td>{{ $user->email }}</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>:</td>
+                                <td>
+                                    @if (!empty($user->getRoleNames()))
+                                        @foreach ($user->getRoleNames() as $v)
+                                            <label class="badge bg-success">{{ $v }}</label>
+                                        @endforeach
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
