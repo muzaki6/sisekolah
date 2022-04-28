@@ -9,8 +9,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4 col-md-3 col-lg-2">
-                                <a href="{{ route('users.create') }}" class="btn btn-dark btn-sm btn-block mb-2">Tambah
-                                    User</a>
+                                @can('user-create')
+                                    <a href="{{ route('users.create') }}" class="btn btn-dark btn-sm btn-block mb-2">Tambah
+                                        User</a>
+                                @endcan
                             </div>
                         </div>
                         @if ($message = Session::get('success'))
