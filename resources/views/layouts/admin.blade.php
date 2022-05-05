@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('home') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -60,20 +60,55 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Siswa -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoSiswa"
+                    aria-expanded="true" aria-controls="collapseTwoSiswa">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Siswa</span>
+                </a>
+                <div id="collapseTwoSiswa" class="collapse" aria-labelledby="headingTwoSiswa"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data Siswa:</h6>
+                        <a class="collapse-item" href="{{ route('siswa.create') }}">Data Entry</a>
+                        <a class="collapse-item" href="{{ route('siswa.index') }}">Laporan</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Pegawai -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwoPegawai"
+                    aria-expanded="true" aria-controls="collapseTwoPegawai">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pegawai</span>
+                </a>
+                <div id="collapseTwoPegawai" class="collapse" aria-labelledby="headingTwoPegawai"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Data Pegawai:</h6>
+                        <a class="collapse-item" href="buttons.html">Data Entry</a>
+                        <a class="collapse-item" href="cards.html">Laporan</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Kurikulum -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Kurikulum</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                        <!-- Nav Item - Utilities Collapse Menu -->
+                        <h6 class="collapse-header">Data Kurikulum:</h6>
+                        <a class="collapse-item" href="buttons.html">Data Entry</a>
+                        <a class="collapse-item" href="cards.html">Laporan</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
@@ -189,7 +224,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -208,9 +244,11 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal"
+                                    data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
+                                    @csrf
                                 </a>
                             </div>
                         </li>
@@ -264,7 +302,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="">Logout</a>
                 </div>
             </div>
         </div>
