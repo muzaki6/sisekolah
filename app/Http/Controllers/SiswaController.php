@@ -16,7 +16,7 @@ class SiswaController extends Controller
     public function index()
     {
         return view('siswa.index', [
-            'siswas' => DB::table('siswas')->orderBy('created_at', 'DESC')->paginate(5)
+            'siswas' => DB::select('SELECT * FROM siswas AS A ORDER BY A.created_at DESC')
         ]);
     }
 

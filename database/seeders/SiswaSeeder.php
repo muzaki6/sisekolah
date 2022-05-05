@@ -17,9 +17,9 @@ class SiswaSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 10; $i++) {
-            $no_induk = '2022' . '10' . $i;
-            $nama = 'Adam' . $i;
-            $jenis_kelamin = 'Laki-laki';
+            $no_induk = '2022' . '01' . $i;
+            $nama = 'Lalisa' . $i;
+            $jenis_kelamin = 'Perempuan';
             $agama = 'Islam';
             $alamat = 'Indonesia' . $i;
             $tahun_masuk = '2020';
