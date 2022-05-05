@@ -19,8 +19,8 @@
                             </div>
                         @endif
                         <table class="table caption-top">
-                            <thead class="table-dark">
-                                <tr>
+                            <thead class="table-dark text-center">
+                                <tr class="">
                                     <th scope="col">#</th>
                                     <th scope="col">No. Induk</th>
                                     <th scope="col">Nama</th>
@@ -28,23 +28,19 @@
                                     <th scope="col">Agama</th>
                                     <th scope="col">Alamat</th>
                                     <th scope="col">Tahun Masuk</th>
-                                    <th scope="col">Created At</th>
-                                    <th scope="col">Updated At</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="text-center">
                                 @foreach ($siswas as $key => $siswa)
                                     <tr>
                                         <th scope="row">{{ $siswas->firstItem() + $key }}</th>
                                         <td>{{ $siswa->no_induk }}</td>
-                                        <td>{{ $siswa->nama }}</td>
+                                        <td class="text-left">{{ $siswa->nama }}</td>
                                         <td>{{ $siswa->jenis_kelamin }}</td>
                                         <td>{{ $siswa->agama }}</td>
                                         <td>{{ $siswa->alamat }}</td>
                                         <td>{{ $siswa->tahun_masuk }}</td>
-                                        <td>{{ $siswa->created_at }}</td>
-                                        <td>{{ $siswa->updated_at }}</td>
                                         <td class="text-center">
                                             <a href="#" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="#" class="btn btn-danger btn-sm">Hapus</a>

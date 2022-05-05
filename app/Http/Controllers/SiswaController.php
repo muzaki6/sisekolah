@@ -16,12 +16,8 @@ class SiswaController extends Controller
     public function index()
     {
         return view('siswa.index', [
-            'siswas' => DB::table('siswas')->orderBy('created_at', 'DESC')->paginate(10)
+            'siswas' => DB::table('siswas')->orderBy('created_at', 'DESC')->paginate(5)
         ]);
-
-        // return view('siswa.index', [
-        //     'siswas' => Siswa::with('siswas')->orderBy('created_at', 'DESC')->paginate(10)
-        // ]);
     }
 
     /**
