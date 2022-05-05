@@ -27,7 +27,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('siswa.create', [
+            'siswas' => Siswa::all()
+        ]);
     }
 
     /**
@@ -38,7 +40,21 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'no_induk'      => 'required|max:10',
+            'tahun_masuk'   => 'required|numeric',
+        ]);
+
+        $siswa = new Siswa();
+        $siswa->no_induk = $request->no_induk;
+        $siswa->nama = $request->nama;
+        $siswa->jenis_kelamin = $request->jenis_kelamin;
+        $siswa->agama = $request->agama;
+        $siswa->alamat = $request->alamat;
+        $siswa->tahun_masuk = $request->tahun_masuk;
+        $siswa->save();
+
+        return redirect()->route('siswa.index')->with('status', 'Data siswa berhasil ditambahkan');
     }
 
     /**
