@@ -5,24 +5,18 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">Data Siswa</div>
+                    <div class="card-header"><b>Data Siswa</b></div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-4 col-md-3 col-lg-2">
-                                <a href="{{ route('siswa.create') }}" class="btn btn-dark btn-sm btn-block mb-2">Tambah
-                                    Siswa</a>
-                            </div>
-                        </div>
                         @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <table class="table caption-top">
+                        <table class="table table table-bordered caption-top">
                             <thead class="table-dark text-center">
                                 <tr class="">
-                                    <th scope="col">#</th>
-                                    <th scope="col">No. Induk</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Induk</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Jenis Kelamin</th>
                                     <th scope="col">Agama</th>
