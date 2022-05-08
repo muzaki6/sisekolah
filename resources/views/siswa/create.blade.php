@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">Data Entry Siswa</div>
+                    <div class="card-header"><b>Data Entry Siswa</b></div>
                     <div class="card-body">
                         @component('components.error')
                         @endcomponent

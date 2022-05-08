@@ -74,9 +74,11 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Siswa $siswa)
+    public function edit($id)
     {
-        //
+        // Check JSON
+        // $post = Siswa::findOrFail($id);
+        // return response()->json($post, 200);
     }
 
     /**
