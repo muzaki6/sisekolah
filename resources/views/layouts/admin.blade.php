@@ -154,8 +154,8 @@
                 <div id="kelolauser" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Users</a>
-                        <a class="collapse-item" href="forgot-password.html">Roles</a>
+                        <a class="collapse-item" href="{{ route('users.index') }}">Users</a>
+                        <a class="collapse-item" href="{{ route('roles.index') }}">Roles</a>
                     </div>
                 </div>
             </li>
