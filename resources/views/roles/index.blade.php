@@ -12,7 +12,8 @@
                         <div class="row">
                             <div class="col-4 col-md-3 col-lg-2">
                                 @can('user-create')
-                                    <a href="{{ route('roles.create') }}" class="btn btn-dark btn-sm btn-block mb-2">Tambah
+                                    <a href="{{ route('roles.create') }}" class="btn btn-dark btn-sm btn-block mb-2"><i
+                                            class="fas fa-fw fa-plus"></i>Tambah
                                         Role</a>
                                 @endcan
                             </div>
