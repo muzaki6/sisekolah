@@ -146,11 +146,19 @@
 
             <!-- Nav Item - Kelola Users -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Kelola User</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#kelolauser"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Kelola User</span>
+                </a>
+                <div id="kelolauser" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="login.html">Users</a>
+                        <a class="collapse-item" href="forgot-password.html">Roles</a>
+                    </div>
+                </div>
             </li>
-
             <!-- Nav Item - Setting -->
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
