@@ -10,7 +10,8 @@
                         <div class="row">
                             <div class="col-4 col-md-3 col-lg-2">
                                 @can('user-create')
-                                    <a href="{{ route('users.create') }}" class="btn btn-dark btn-sm btn-block mb-2">Tambah
+                                    <a href="{{ route('users.create') }}" class="btn btn-dark btn-sm btn-block mb-2"><i
+                                            class="fas fa-fw fa-folder"></i> Tambah
                                         User</a>
                                 @endcan
                             </div>
