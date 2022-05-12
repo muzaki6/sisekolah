@@ -90,8 +90,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Pegawai:</h6>
-                        <a class="collapse-item" href="buttons.html">Data Entry</a>
-                        <a class="collapse-item" href="cards.html">Laporan</a>
+                        <a class="collapse-item" href="{{ route('pegawais.create') }}">Data Entry</a>
+                        <a class="collapse-item" href="{{ route('pegawais.index') }}">Laporan</a>
                     </div>
                 </div>
             </li>
