@@ -40,7 +40,7 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_pegawai' => 'required',
+            'id_pegawai' => 'required|numeric',
             'nama' => 'required',
             'id_status' => 'required'
         ]);
@@ -60,17 +60,29 @@ class PegawaiController extends Controller
 
     public function edit(Pegawai $pegawai)
     {
-        return view('pegawais.edit', [
-            'pegawai' => $pegawai
-        ]);
+        $status = Status::all();
+        return view('pegawais.edit', compact('pegawai', 'status'));
     }
 
     public function update(Request $request, Pegawai $pegawai)
     {
+        $request->validate([
+            'id_pegawai' => 'required|numeric',
+            'nama' => 'required',
+            'id_status' => 'required'
+        ]);
+        $pegawai->id_pegawai = $request->id_pegawai;
+        $pegawai->nama = $request->nama;
+        $pegawai->id_status = $request->id_status;
+        $pegawai->save();
+
+        return redirect()->route('pegawais.index')->with('success', 'Data pegawai berhasil diubah');
     }
 
 
     public function destroy(Pegawai $pegawai)
     {
+        $pegawai->delete();
+        return redirect()->route('pegawais.index')->with('success', 'Data pegawai berhasil dihapus');
     }
 }

@@ -35,9 +35,18 @@
                                     <td>{{ $pegawai->nama }}</td>
                                     <td>{{ $pegawai->status }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('pegawais.edit', ['pegawai' => $pegawai->id_pegawai]) }}"
-                                            class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+
+                                        <form
+                                            action="{{ route('pegawais.destroy', ['pegawai' => $pegawai->id_pegawai]) }}"
+                                            method="POST">
+                                            <a href="{{ route('pegawais.edit', ['pegawai' => $pegawai->id_pegawai]) }}"
+                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                        </form>
+
                                     </td>
                                 </tr>
                             @endforeach
