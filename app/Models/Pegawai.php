@@ -11,12 +11,10 @@ class Pegawai extends Model
     use HasFactory;
     protected $table = 'pegawai';
     protected $guarded = ['id_pegawai'];
+    protected $primaryKey = 'id_pegawai';
 
-    // public function scopeGetAllSiswaWithPagination()
-    // {
-    //     return $this->select(DB::raw('id, no_induk, nama, jenis_kelamin, agama, alamat, tahun_masuk, created_at, updated_at'))
-    //         ->orderBy('created_at', 'desc')
-    //         ->paginate(10)
-    //         ->onEachSide(1);
-    // }
+    public function status()
+    {
+        return $this->belongsToMany(Pegawai::class, 'ref_status_pegawai', 'id_status', 'id_status');
+    }
 }

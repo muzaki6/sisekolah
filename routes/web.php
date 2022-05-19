@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -28,6 +29,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
+    Route::resource('pegawais', PegawaiController::class);
 });
 
 Route::middleware('auth')->group(function () {
