@@ -14,13 +14,15 @@
                     <div class="card-body">
                         @component('components.error')
                         @endcomponent
-                        <form action="{{ route('siswa.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('siswa.update', $siswa->id) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="form-group row mb-1">
                                 <label for="no_induk" class="col-sm-2 col-form-label">Nomor Induk</label>
                                 <div class="col-sm-10">
                                     <input id="no_induk" name="no_induk" type="text" class="form-control"
-                                        placeholder="Masukan Nomor Induk">
+                                        placeholder="Masukan Nomor Induk" value="{{ $siswa->no_induk }}">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">

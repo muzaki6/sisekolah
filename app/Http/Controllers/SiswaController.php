@@ -83,8 +83,9 @@ class SiswaController extends Controller
      * @param  \App\Models\Siswa  $siswa
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Siswa $siswa)
     {
+        return view('siswa.edit', compact('siswa'));
         // Check JSON
         // $post = Siswa::findOrFail($id);
         // return response()->json($post, 200);
@@ -99,7 +100,14 @@ class SiswaController extends Controller
      */
     public function update(Request $request, Siswa $siswa)
     {
-        //
+        $request->validate([
+            'no_induk'      => 'required|max:10',
+            'tahun_masuk'   => 'required|numeric',
+        ]);
+
+        $siswa->update($request->all());
+
+        return redirect()->route('siswa.index')->with('succes', 'Siswa Berhasil di Update');
     }
 
     /**
