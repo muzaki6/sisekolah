@@ -34,19 +34,20 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::resource('siswa', SiswaController::class);
 
-    Route::prefix('siswa')->group(function () {
-        Route::get('/', [SiswaController::class, 'index'])->name('siswa.index');
-        Route::get('/create', [SiswaController::class, 'create'])->name('siswa.create');
-        // Untuk insert data menggunakan post
-        Route::post('/store', [SiswaController::class, 'store'])->name('siswa.store');
-        Route::get('/edit/{id}', [SiswaController::class, 'edit'])->name('siswa.edit');
-        // Untuk update data menggunakan put atau patch
-        Route::put('/{id}', [SiswaController::class, 'update'])->name('siswa.update');
-        // Untuk hapus data menggunakan delete
-        Route::delete('/{id}', [SiswaController::class, 'destroy'])->name('siswa.delete');
-        Route::get('/all', [SiswaController::class, 'getAllCategory'])->name('siswa.all');
-    });
+    // Route::prefix('siswa')->group(function () {
+    //     Route::get('/', [SiswaController::class, 'index'])->name('siswa.index');
+    //     Route::get('/create', [SiswaController::class, 'create'])->name('siswa.create');
+    //     // Untuk insert data menggunakan post
+    //     Route::post('/store', [SiswaController::class, 'store'])->name('siswa.store');
+    //     Route::get('/edit/{id}', [SiswaController::class, 'edit'])->name('siswa.edit');
+    //     // Untuk update data menggunakan put atau patch
+    //     Route::put('/{id}', [SiswaController::class, 'update'])->name('siswa.update');
+    //     // Untuk hapus data menggunakan delete
+    //     Route::delete('/{id}', [SiswaController::class, 'destroy'])->name('siswa.delete');
+    //     Route::get('/all', [SiswaController::class, 'getAllCategory'])->name('siswa.all');
+    // });
 
-    //Route::resource('siswa', SiswaController::class);
+
 });
