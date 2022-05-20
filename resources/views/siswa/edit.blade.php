@@ -75,7 +75,7 @@
 @section('js_custom')
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <script>
+    {{-- <script>
         $(function() {
             $('#siswa').select2({
                 placeholder: 'Pilih kategori',
@@ -94,5 +94,5 @@
                 }
             })
         })
-    </script>
+    </script> --}}
 @endsection
