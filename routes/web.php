@@ -48,5 +48,5 @@ Route::middleware('auth')->group(function () {
         Route::get('/all', [SiswaController::class, 'getAllCategory'])->name('siswa.all');
     });
 
-    Route::resource('siswa', SiswaController::class);
+    //Route::resource('siswa', SiswaController::class);
 });
