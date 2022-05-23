@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pegawai;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -20,15 +21,14 @@ class PegawaiController extends Controller
     //     $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
     // }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('pegawais.index', [
-            'pegawais' => DB::table('pegawai')
-                ->join('ref_status_pegawai', 'pegawai.id_status', '=', 'ref_status_pegawai.id_status')
-                ->select('pegawai.id_pegawai', 'pegawai.nama', 'ref_status_pegawai.status')
-                ->orderBy('pegawai.id_pegawai')
-                ->get()
-        ]);
+        $pegawais =  DB::table('pegawai')
+            ->join('ref_status_pegawai', 'pegawai.id_status', '=', 'ref_status_pegawai.id_status')
+            ->select('pegawai.id_pegawai', 'pegawai.nama', 'ref_status_pegawai.status')
+            ->orderBy('pegawai.id_pegawai')
+            ->paginate(5);
+        return view('pegawais.index', compact('pegawais'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     public function create()
