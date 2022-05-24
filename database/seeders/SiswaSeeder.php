@@ -21,7 +21,7 @@ class SiswaSeeder extends Seeder
             $nama = 'Lalisa' . $i;
             $jenis_kelamin = 'Perempuan';
             $agama = 'Islam';
-            $alamat = 'Indonesia' . $i;
+            $alamat = 'Indonesia';
             $tahun_masuk = '2020';
             Siswa::create([
                 'no_induk' => $no_induk,
