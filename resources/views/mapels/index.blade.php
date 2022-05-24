@@ -6,7 +6,16 @@
         <!-- Data Pegawai -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-dark">Data Pegawai</h6>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="m-0 font-weight-bold text-dark">Data Mata Pelajaran</h6>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <a href="{{ route('mapels.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
+                            Tambah Data</a>
+                    </div>
+                </div>
+
             </div>
             <div class="card-body">
                 @if (session('status'))
