@@ -41,12 +41,18 @@
                                     <td>{{ $siswa->alamat }}</td>
                                     <td>{{ $siswa->tahun_masuk }}</td>
                                     <td class="text-center">
-                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                        <a href="{{ route('siswa.edit', $siswa->id) }}" class="btn btn-warning btn-sm"><i
-                                                class="fa fa-edit"></i></a>
-                                        {{-- <a href="{{ route('siswa.edit', ['id' => $siswa->id]) }}"
-                                            class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a> --}}
-                                        <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                        <form action="{{ route('siswa.destroy', $siswa->id) }}" method="POST">
+                                            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ route('siswa.edit', $siswa->id) }}"
+                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                                    class="fa fa-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
