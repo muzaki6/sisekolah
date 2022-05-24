@@ -106,8 +106,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Mata Pelajaran:</h6>
-                        <a class="collapse-item" href="{{ route('mapels.create') }}">Data Entry</a>
-                        <a class="collapse-item" href="{{ route('mapels.index') }}">Laporan</a>
+                        <a class="collapse-item" href="#">Data Entry</a>
+                        <a class="collapse-item" href="#">Laporan</a>
                         <h6 class="collapse-header">Data Nilai:</h6>
                         <a class="collapse-item" href="buttons.html">Data Entry</a>
                         <a class="collapse-item" href="cards.html">Laporan</a>
@@ -136,7 +136,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Mata Pelajaran</a>
+                        <a class="collapse-item" href="{{ route('mapels.index') }}">Mata Pelajaran</a>
                         <a class="collapse-item" href="forgot-password.html">Nilai</a>
                         <a class="collapse-item" href="register.html">Kelas</a>
                         <a class="collapse-item" href="forgot-password.html">Status</a>
