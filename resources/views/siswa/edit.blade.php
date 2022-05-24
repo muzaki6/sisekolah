@@ -29,35 +29,35 @@
                                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                 <div class="col-sm-10">
                                     <input id="nama" name="nama" type="text" class="form-control"
-                                        placeholder="Masukan Nama">
+                                        placeholder="Masukan Nama" value="{{ $siswa->nama }}">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                 <div class="col-sm-10">
                                     <input id="jenis_kelamin" name="jenis_kelamin" type="text" class="form-control"
-                                        placeholder="Masukan Jenis Kelamin">
+                                        placeholder="Masukan Jenis Kelamin" value="{{ $siswa->jenis_kelamin }}">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <input id="agama" name="agama" type="text" class="form-control"
-                                        placeholder="Masukan Agama">
+                                        placeholder="Masukan Agama" value="{{ $siswa->agama }}">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
                                     <input id="alamat" name="alamat" type="text" class="form-control"
-                                        placeholder="Masukan Alamat">
+                                        placeholder="Masukan Alamat" value="{{ $siswa->alamat }}">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="tahun_masuk" class="col-sm-2 col-form-label">Tahun Masuk</label>
                                 <div class="col-sm-10">
                                     <input id="tahun_masuk" name="tahun_masuk" type="text" class="form-control"
-                                        placeholder="Masukan Alamat">
+                                        placeholder="Masukan Alamat" value="{{ $siswa->tahun_masuk }}">
                                 </div>
                             </div>
                             <hr>
