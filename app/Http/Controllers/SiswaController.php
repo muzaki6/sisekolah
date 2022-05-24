@@ -25,7 +25,7 @@ class SiswaController extends Controller
     public function index()
     {
         return view('siswa.index', [
-            'siswas' => DB::select('SELECT * FROM siswas AS A ORDER BY A.created_at DESC')
+            'siswas' => DB::select('SELECT * FROM siswas AS A ORDER BY A.tahun_masuk DESC, A.created_at DESC')
         ]);
     }
 
