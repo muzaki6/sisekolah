@@ -107,7 +107,7 @@ class SiswaController extends Controller
 
         $siswa->update($request->all());
 
-        return redirect()->route('siswa.index')->with('succes', 'Siswa Berhasil di Update');
+        return redirect()->route('siswa.index')->with('status', 'Siswa Berhasil diUpdate');
     }
 
     /**
@@ -118,6 +118,9 @@ class SiswaController extends Controller
      */
     public function destroy(Siswa $siswa)
     {
-        //
+        $siswa->delete();
+
+        return redirect()->route('siswa.index')
+            ->with('success', 'Siswa Berhasil diHapus');
     }
 }
