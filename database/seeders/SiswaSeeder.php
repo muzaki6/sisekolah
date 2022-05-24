@@ -16,13 +16,13 @@ class SiswaSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $no_induk = '2022' . '01' . $i;
-            $nama = 'Lalisa' . $i;
-            $jenis_kelamin = 'Perempuan';
+            $nama = 'Lionel Messi' . $i;
+            $jenis_kelamin = 'Laki Laki';
             $agama = 'Islam';
             $alamat = 'Indonesia';
-            $tahun_masuk = '2020';
+            $tahun_masuk = '2022';
             Siswa::create([
                 'no_induk' => $no_induk,
                 'nama' => $nama,
