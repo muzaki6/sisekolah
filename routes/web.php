@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RoleController;
@@ -32,6 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', UserController::class);
     Route::resource('pegawais', PegawaiController::class);
     Route::resource('mapels', MapelController::class);
+    Route::resource('kelass', KelasController::class);
 });
 
 Route::middleware('auth')->group(function () {

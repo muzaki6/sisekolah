@@ -138,7 +138,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('mapels.index') }}">Mata Pelajaran</a>
                         <a class="collapse-item" href="forgot-password.html">Nilai</a>
-                        <a class="collapse-item" href="register.html">Kelas</a>
+                        <a class="collapse-item" href="{{ route('kelass.index') }}">Kelas</a>
                         <a class="collapse-item" href="forgot-password.html">Status</a>
                     </div>
                 </div>
