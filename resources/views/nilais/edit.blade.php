@@ -14,25 +14,27 @@
                     <div class="card-body">
                         @component('components.error')
                         @endcomponent
-                        <form action="{{ route('mapels.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('nilais.update', ['nilai' => $nilai->id_nilai]) }}" method="post"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row mb-1">
-                                <label for="id_mapel" class="col-sm-2 col-form-label">ID Mapel</label>
+                                <label for="id_nilai" class="col-sm-2 col-form-label">ID Mapel</label>
                                 <div class="col-sm-10">
-                                    <input id="id_mapel" name="id_mapel" type="text" class="form-control"
-                                        placeholder="Masukan Id Mata Pelajaran">
+                                    <input value="{{ $nilai->id_nilai }}" id="id_nilai" name="id_nilai" type="text"
+                                        class="form-control" placeholder="Masukan Id Nilai">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
-                                <label for="mapel" class="col-sm-2 col-form-label">Mata Pelajaran</label>
+                                <label for="nilai" class="col-sm-2 col-form-label">Mata Pelajaran</label>
                                 <div class="col-sm-10">
-                                    <input id="mapel" name="mapel" type="text" class="form-control"
-                                        placeholder="Masukan Mata Pelajaran">
+                                    <input value="{{ $nilai->nilai }}" id="nilai" name="nilai" type="text"
+                                        class="form-control" placeholder="Masukan Nilai">
                                 </div>
                             </div>
                             <div class="form-group d-flex justify-content-end">
                                 <input type="submit" class="btn btn-dark mb-2" value='Submit'>
                             </div>
+                            @method('PUT')
                         </form>
                     </div>
                 </div>

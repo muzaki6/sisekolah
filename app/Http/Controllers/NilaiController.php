@@ -33,6 +33,20 @@ class NilaiController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'id_nilai' => 'required',
+            'nilai' => 'required'
+        ], [
+            'id_nilai.required' => 'Id Nilai harus diisi !!',
+            'nilai.required' => 'Nilai harus diisi !!'
+        ]);
+
+        $nilai = new Nilai();
+        $nilai->id_nilai = $request->id_nilai;
+        $nilai->nilai = $request->nilai;
+        $nilai->save();
+
+        return redirect()->route('nilais.index')->with('status', 'Data nilai berhasil ditambahkan');
     }
 
     // public function show(Mapel $mapel)
@@ -41,14 +55,29 @@ class NilaiController extends Controller
 
     public function edit(Nilai $nilai)
     {
+        return view('nilais.edit', compact('nilai'));
     }
 
     public function update(Request $request, Nilai $nilai)
     {
+        $request->validate([
+            'id_nilai' => 'required',
+            'nilai' => 'required'
+        ], [
+            'id_nilai.required' => 'Id Nilai harus diisi !'
+        ]);
+
+        $nilai->id_nilai = $request->id_nilai;
+        $nilai->nilai = $request->nilai;
+        $nilai->save();
+
+        return redirect()->route('nilais.index')->with('status', 'Data nilai berhasil diubah');
     }
 
 
     public function destroy(Nilai $nilai)
     {
+        $nilai->delete();
+        return redirect()->route('nilais.index')->with('status', 'Data nilai berhasil dihapus');
     }
 }

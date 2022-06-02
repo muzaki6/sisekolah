@@ -43,7 +43,7 @@
                                     <td>{{ $nilai->nilai }}</td>
                                     <td class="text-center">
 
-                                        {{-- <form action="{{ route('nilais.destroy', ['nilai' => $nilai->id_nilai]) }}"
+                                        <form action="{{ route('nilais.destroy', ['nilai' => $nilai->id_nilai]) }}"
                                             method="POST">
                                             <a href="{{ route('nilais.edit', ['nilai' => $nilai->id_nilai]) }}"
                                                 class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
@@ -51,7 +51,7 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"
                                                 onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
-                                        </form> --}}
+                                        </form>
 
                                     </td>
                                 </tr>
