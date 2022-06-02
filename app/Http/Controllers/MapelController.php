@@ -22,7 +22,7 @@ class MapelController extends Controller
     public function index()
     {
         return view('mapels.index', [
-            'mapels' => Mapel::orderBy('created_at', 'desc')->paginate(10)
+            'mapels' => Mapel::orderBy('created_at', 'asc')->paginate(10)
         ]);
     }
 
