@@ -50,7 +50,7 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'no_induk'      => 'required|max:10',
+            'no_induk'      => 'required|max:10|unique:siswas',
             'tahun_masuk'   => 'required|numeric',
         ]);
 
@@ -101,7 +101,7 @@ class SiswaController extends Controller
     public function update(Request $request, Siswa $siswa)
     {
         $request->validate([
-            'no_induk'      => 'required|max:10',
+            'no_induk'      => 'required|max:10|unique:siswas',
             'tahun_masuk'   => 'required|numeric',
         ]);
 

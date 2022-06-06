@@ -20,16 +20,16 @@
                                 <label for="id_kelas" class="col-sm-2 col-form-label">ID Kelas</label>
                                 <div class="col-sm-10">
                                     <input id="id_kelas" name="id_kelas" type="text" class="form-control"
-                                        placeholder="Masukan Id Mata Pelajaran">
+                                        placeholder="Masukan Id Kelas">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="status-option" class="col-sm-2 col-form-label">Kelas</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="status-option" name="kelas">
-                                        <option value="X" {{ $kelas->kelas == X ? 'selected' : '' }}>X</option>
-                                        <option value="XI" {{ $kelas->kelas == XI ? 'selected' : '' }}>XI</option>
-                                        <option value="XII" {{ $kelas->kelas == XII ? 'selected' : '' }}>XII</option>
+                                        <option value="X">X</option>
+                                        <option value="XI">XI</option>
+                                        <option value="XII">XII</option>
                                     </select>
                                 </div>
                             </div>

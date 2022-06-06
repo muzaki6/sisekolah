@@ -34,7 +34,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_kelas' => 'required|alpha_num',
+            'id_kelas' => 'required|alpha_num|unique:kelas',
             'kelas' => 'required',
             'jurusan' => 'required',
             'ruang' => 'required'
@@ -67,7 +67,7 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id_kelas' => 'required|alpha_num',
+            'id_kelas' => 'required|alpha_num|unique:kelas',
             'kelas' => 'required',
             'jurusan' => 'required',
             'ruang' => 'required'

@@ -34,7 +34,7 @@ class NilaiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_nilai' => 'required',
+            'id_nilai' => 'required|unique:nilai',
             'nilai' => 'required'
         ], [
             'id_nilai.required' => 'Id Nilai harus diisi !!',
@@ -61,7 +61,7 @@ class NilaiController extends Controller
     public function update(Request $request, Nilai $nilai)
     {
         $request->validate([
-            'id_nilai' => 'required',
+            'id_nilai' => 'required|unique:nilai',
             'nilai' => 'required'
         ], [
             'id_nilai.required' => 'Id Nilai harus diisi !'

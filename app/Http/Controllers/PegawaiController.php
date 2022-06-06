@@ -40,7 +40,7 @@ class PegawaiController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'id_pegawai' => 'required|numeric',
+            'id_pegawai' => 'required|numeric|unique:pegawai',
             'nama' => 'required',
             'id_status' => 'required'
         ]);
@@ -67,7 +67,7 @@ class PegawaiController extends Controller
     public function update(Request $request, Pegawai $pegawai)
     {
         $request->validate([
-            'id_pegawai' => 'required|numeric',
+            'id_pegawai' => 'required|numeric|unique:pegawai',
             'nama' => 'required',
             'id_status' => 'required'
         ]);

@@ -34,7 +34,7 @@ class MapelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_mapel' => 'required|alpha_num',
+            'id_mapel' => 'required|alpha_num|unique:mapel',
             'mapel' => 'required',
         ], [
             'id_mapel.required' => 'Id Mata Pelajaran wajib diisi'
@@ -60,7 +60,7 @@ class MapelController extends Controller
     public function update(Request $request, Mapel $mapel)
     {
         $request->validate([
-            'id_mapel' => 'required|alpha_num',
+            'id_mapel' => 'required|alpha_num|unique:mapel',
             'mapel' => 'required',
         ]);
 
