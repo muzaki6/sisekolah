@@ -10,6 +10,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapelController;
+use App\Http\Controllers\NilaiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('pegawais', PegawaiController::class);
     Route::resource('mapels', MapelController::class);
     Route::resource('kelass', KelasController::class);
+    Route::resource('nilais', NilaiController::class);
 });
 
 Route::middleware('auth')->group(function () {
