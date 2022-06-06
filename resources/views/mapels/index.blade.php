@@ -11,8 +11,10 @@
                         <h6 class="m-0 font-weight-bold text-dark">Data Mata Pelajaran</h6>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a href="{{ route('mapels.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
-                            Tambah Data</a>
+                        @can('pegawai-create')
+                            <a href="{{ route('mapels.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
+                                Tambah Data</a>
+                        @endcan
                     </div>
                 </div>
 
@@ -45,12 +47,17 @@
 
                                         <form action="{{ route('mapels.destroy', ['mapel' => $mapel->id_mapel]) }}"
                                             method="POST">
-                                            <a href="{{ route('mapels.edit', ['mapel' => $mapel->id_mapel]) }}"
-                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @can('mapel-edit')
+                                                <a href="{{ route('mapels.edit', ['mapel' => $mapel->id_mapel]) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @endcan
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                            @can('pegawai-delete')
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                            @endcan
+
                                         </form>
 
                                     </td>

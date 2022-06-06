@@ -23,7 +23,7 @@
                                 <td>
                                     @if (!empty($rolePermissions))
                                         @foreach ($rolePermissions as $v)
-                                            <label class="badge bg-success">{{ $v->name }},</label>
+                                            <label class="badge bg-success text-white">{{ $v->name }},</label>
                                         @endforeach
                                     @endif
                                 </td>

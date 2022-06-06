@@ -11,8 +11,10 @@
                         <h6 class="m-0 font-weight-bold text-dark">Data Mata Pelajaran</h6>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
-                        <a href="{{ route('kelass.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
-                            Tambah Data</a>
+                        @can('kelas-list')
+                            <a href="{{ route('kelass.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
+                                Tambah Data</a>
+                        @endcan
                     </div>
                 </div>
 
@@ -49,14 +51,17 @@
 
                                         <form action="{{ route('kelass.destroy', ['kelass' => $kelas->id_kelas]) }}"
                                             method="POST">
-                                            <a href="{{ route('kelass.edit', ['kelass' => $kelas->id_kelas]) }}"
-                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @can('kelas-edit')
+                                                <a href="{{ route('kelass.edit', ['kelass' => $kelas->id_kelas]) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @endcan
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                            @can('kelas-delete')
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                            @endcan
                                         </form>
-
                                     </td>
                                 </tr>
                             @endforeach

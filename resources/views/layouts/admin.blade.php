@@ -90,8 +90,12 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Pegawai:</h6>
-                        <a class="collapse-item" href="{{ route('pegawais.create') }}">Data Entry</a>
-                        <a class="collapse-item" href="{{ route('pegawais.index') }}">Laporan</a>
+                        @can('pegawai-create')
+                            <a class="collapse-item" href="{{ route('pegawais.create') }}">Data Entry</a>
+                        @endcan
+                        @can('pegawai-list')
+                            <a class="collapse-item" href="{{ route('pegawais.index') }}">Laporan</a>
+                        @endcan
                     </div>
                 </div>
             </li>
@@ -136,10 +140,16 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('mapels.index') }}">Mata Pelajaran</a>
-                        <a class="collapse-item" href="{{ route('nilais.index') }}">Nilai</a>
-                        <a class="collapse-item" href="{{ route('kelass.index') }}">Kelas</a>
-                        <a class="collapse-item" href="forgot-password.html">Status</a>
+                        @can('mapel-list')
+                            <a class="collapse-item" href="{{ route('mapels.index') }}">Mata Pelajaran</a>
+                        @endcan
+                        @can('nilai-list')
+                            <a class="collapse-item" href="{{ route('nilais.index') }}">Nilai</a>
+                        @endcan
+                        @can('kelas-list')
+                            <a class="collapse-item" href="{{ route('kelass.index') }}">Kelas</a>
+                        @endcan
+                        {{-- <a class="collapse-item" href="forgot-password.html">Status</a> --}}
                     </div>
                 </div>
             </li>

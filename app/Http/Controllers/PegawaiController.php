@@ -13,13 +13,13 @@ use Spatie\Permission\Models\Permission;
 
 class PegawaiController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('permission:pegawai-list|pegawai-create|pegawai-edit|pegawai-delete', ['only' => ['index', 'store']]);
-    //     $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
-    //     $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:pegawai-list|pegawai-create|pegawai-edit|pegawai-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
+    }
 
     public function index(Request $request)
     {

@@ -39,12 +39,16 @@
                                         <form
                                             action="{{ route('pegawais.destroy', ['pegawai' => $pegawai->id_pegawai]) }}"
                                             method="POST">
-                                            <a href="{{ route('pegawais.edit', ['pegawai' => $pegawai->id_pegawai]) }}"
-                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @can('pegawai-edit')
+                                                <a href="{{ route('pegawais.edit', ['pegawai' => $pegawai->id_pegawai]) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @endcan
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                            @can('pegawai-delete')
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('yakin?');"><i class="fa fa-trash"></i></button>
+                                            @endcan
                                         </form>
 
                                     </td>
