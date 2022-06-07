@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Coming Soon - Start Bootstrap Theme</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="{{ asset('image/image-icon/logo.png') }}" rel="shortcut icon">
     <!-- Font Awesome icons (free version)-->
@@ -25,7 +25,7 @@
 <body>
     <!-- Background Video-->
     <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="assets/mp4/bg.mp4" type="video/mp4" />
+        <source src="{{ asset('assets/mp4/bg.mp4') }}" type="video/mp4" />
     </video>
     <!-- Masthead-->
     <div class="masthead">
