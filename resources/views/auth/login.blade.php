@@ -3,13 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card">
                     <div class="card-header text-center bg-image text-white"
-                        style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');">
-                        {{ __('Login') }}</div>
+                        style="height: 100px; background-image: url('{{ asset('image/image-background/learn2.jpg') }}');">
+                    </div>
 
-                    <div class="card-body">
+                    <div class="mt-4 mb-4 card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
