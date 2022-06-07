@@ -40,8 +40,19 @@
     <!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
     <div class="social-icons">
         <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
-            <a class="btn btn-dark m-3" href="#!"><i class="fab fa-twitter"></i></a>
-            <a class="btn btn-dark m-3" href="#!"><i class="fab fa-facebook-f"></i></a>
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-dark m-3"><i class="fa fa-sign-in-alt"></i></a><br>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-dark m-3"><i class="fa fa-plus"></i></a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
         </div>
     </div>
     <!-- Bootstrap core JS-->
