@@ -395,7 +395,6 @@
                 color: rgba(107, 114, 128, var(--tw-text-opacity))
             }
         }
-
     </style>
 
     <!-- Icon Tab Title Web-->
@@ -405,7 +404,6 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
-
     </style>
 </head>
 
