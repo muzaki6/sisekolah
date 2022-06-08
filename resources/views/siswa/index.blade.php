@@ -43,15 +43,18 @@
                                     <td class="text-center">
                                         <form action="{{ route('siswa.destroy', $siswa->id) }}" method="POST">
                                             <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ route('siswa.edit', $siswa->id) }}"
-                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-
+                                            @can('siswa-edit')
+                                                <a href="{{ route('siswa.edit', $siswa->id) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @endcan
                                             @csrf
-                                            @method('DELETE')
+                                            @can('siswa-delete')
+                                                @method('DELETE')
 
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                    class="fa fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                                        class="fa fa-trash"></i></button>
+                                            @endcan
                                         </form>
                                     </td>
                                 </tr>

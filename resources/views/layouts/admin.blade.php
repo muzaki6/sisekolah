@@ -74,8 +74,13 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Siswa:</h6>
-                        <a class="collapse-item" href="{{ route('siswa.create') }}">Data Entry</a>
-                        <a class="collapse-item" href="{{ route('siswa.index') }}">Laporan</a>
+                        @can('siswa-create')
+                            <a class="collapse-item" href="{{ route('siswa.create') }}">Data Entry</a>
+                        @endcan
+                        @can('siswa-list')
+                            <a class="collapse-item" href="{{ route('siswa.index') }}">Laporan</a>
+                        @endcan
+
                     </div>
                 </div>
             </li>

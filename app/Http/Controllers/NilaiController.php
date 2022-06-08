@@ -11,13 +11,13 @@ use Spatie\Permission\Models\Permission;
 
 class NilaiController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('permission:pegawai-list|pegawai-create|pegawai-edit|pegawai-delete', ['only' => ['index', 'store']]);
-    //     $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
-    //     $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:nilai-list|nilai-create|nilai-edit|nilai-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:nilai-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:nilai-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:nilai-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {
