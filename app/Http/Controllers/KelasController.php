@@ -11,13 +11,13 @@ use Spatie\Permission\Models\Permission;
 
 class KelasController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('permission:pegawai-list|pegawai-create|pegawai-edit|pegawai-delete', ['only' => ['index', 'store']]);
-    //     $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
-    //     $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:kelas-list|kelas-create|kelas-edit|kelas-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:kelas-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:kelas-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:kelas-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

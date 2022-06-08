@@ -11,13 +11,13 @@ use Spatie\Permission\Models\Permission;
 
 class MapelController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('permission:pegawai-list|pegawai-create|pegawai-edit|pegawai-delete', ['only' => ['index', 'store']]);
-    //     $this->middleware('permission:pegawai-create', ['only' => ['create', 'store']]);
-    //     $this->middleware('permission:pegawai-edit', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:pegawai-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:mapel-list|mapel-create|mapel-edit|mapel-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:mapel-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:mapel-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:mapel-delete', ['only' => ['destroy']]);
+    }
 
     public function index()
     {

@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
 class SiswaController extends Controller
 {
-    // function __construct()
-    // {
-    //     $this->middleware('permission:siswa-list|siswa-create|siswa-edit|siswa-delete', ['only' => ['index', 'store']]);
-    //     $this->middleware('permission:siswa-create', ['only' => ['create', 'store']]);
-    //     $this->middleware('permission:siswa-edit', ['only' => ['edit', 'update']]);
-    //     $this->middleware('permission:siswa-delete', ['only' => ['destroy']]);
-    // }
+    function __construct()
+    {
+        $this->middleware('permission:siswa-list|siswa-create|siswa-edit|siswa-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:siswa-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:siswa-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:siswa-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
