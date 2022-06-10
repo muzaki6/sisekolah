@@ -12,6 +12,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\ManajemenKelasSiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,11 +39,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('kelass', KelasController::class);
     Route::resource('nilais', NilaiController::class);
     Route::resource('m_guru_mapels', ManajemenGuruMapelController::class);
+    Route::resource('m_kelas_siswas', ManajemenKelasSiswaController::class);
+    Route::resource('siswa', SiswaController::class);
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::resource('siswa', SiswaController::class);
+
 
     // Route::prefix('siswa')->group(function () {
     //     Route::get('/', [SiswaController::class, 'index'])->name('siswa.index');

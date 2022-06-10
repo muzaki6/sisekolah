@@ -116,8 +116,8 @@
                         <a class="collapse-item" href="buttons.html">Data Entry</a>
                         <a class="collapse-item" href="cards.html">Laporan</a>
                         <h6 class="collapse-header">Data Kelas:</h6>
-                        <a class="collapse-item" href="buttons.html">Data Entry</a>
-                        <a class="collapse-item" href="cards.html">Laporan</a>
+                        <a class="collapse-item" href="{{ route('m_kelas_siswas.create') }}">Data Entry</a>
+                        <a class="collapse-item" href="{{ route('m_kelas_siswas.index') }}">Laporan</a>
                     </div>
                 </div>
             </li>
