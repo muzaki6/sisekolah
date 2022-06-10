@@ -110,8 +110,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Mata Pelajaran:</h6>
-                        <a class="collapse-item" href="#">Data Entry</a>
-                        <a class="collapse-item" href="#">Laporan</a>
+                        <a class="collapse-item" href="{{ route('m_guru_mapels.create') }}">Data Entry</a>
+                        <a class="collapse-item" href="{{ route('m_guru_mapels.index') }}">Laporan</a>
                         <h6 class="collapse-header">Data Nilai:</h6>
                         <a class="collapse-item" href="buttons.html">Data Entry</a>
                         <a class="collapse-item" href="cards.html">Laporan</a>

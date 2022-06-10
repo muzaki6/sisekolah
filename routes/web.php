@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\ManajemenGuruMapelController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\RoleController;
@@ -36,6 +37,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('mapels', MapelController::class);
     Route::resource('kelass', KelasController::class);
     Route::resource('nilais', NilaiController::class);
+    Route::resource('m_guru_mapels', ManajemenGuruMapelController::class);
 });
 
 Route::middleware('auth')->group(function () {
