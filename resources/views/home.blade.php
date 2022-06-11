@@ -3,9 +3,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12 mb-3">
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-header m-0 font-weight-bold">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -33,7 +33,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">88,56</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold">Grafik Nilai Siswa</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -139,7 +139,7 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                    <h6 class="m-0 font-weight-bold">Rata-Rata Nilai</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
