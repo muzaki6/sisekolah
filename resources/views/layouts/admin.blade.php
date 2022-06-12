@@ -95,12 +95,12 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Pegawai:</h6>
-                        {{-- @can('pegawai-create') --}}
-                        <a class="collapse-item" href="{{ route('pegawais.create') }}">Data Entry</a>
-                        {{-- @endcan
-                        @can('pegawai-list') --}}
-                        <a class="collapse-item" href="{{ route('pegawais.index') }}">Laporan</a>
-                        {{-- @endcan --}}
+                        @can('pegawai-create')
+                            <a class="collapse-item" href="{{ route('pegawais.create') }}">Data Entry</a>
+                        @endcan
+                        @can('pegawai-list')
+                            <a class="collapse-item" href="{{ route('pegawais.index') }}">Laporan</a>
+                        @endcan
                     </div>
                 </div>
             </li>
@@ -118,7 +118,7 @@
                         <a class="collapse-item" href="{{ route('m_guru_mapels.create') }}">Data Entry</a>
                         <a class="collapse-item" href="{{ route('m_guru_mapels.index') }}">Laporan</a>
                         <h6 class="collapse-header">Data Nilai:</h6>
-                        <a class="collapse-item" href="#">Data Entry</a>
+                        <a class="collapse-item" href="{{ route('dnilai.create') }}">Data Entry</a>
                         <a class="collapse-item" href="{{ route('dnilai.index') }}">Laporan</a>
                         <h6 class="collapse-header">Data Kelas:</h6>
                         <a class="collapse-item" href="{{ route('m_kelas_siswas.create') }}">Data Entry</a>

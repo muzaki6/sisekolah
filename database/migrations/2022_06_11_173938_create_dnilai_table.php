@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('dnilai');
             $table->integer('id_siswa');
-            $table->integer('id_nilai');
-            $table->integer('id_mapel');
+            $table->varchar('id_nilai');
+            $table->varchar('id_mapel');
             $table->timestamps();
         });
     }

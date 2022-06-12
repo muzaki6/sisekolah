@@ -12,6 +12,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\DnilaiController;
 use App\Http\Controllers\ManajemenKelasSiswaController;
 
 /*
@@ -41,7 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('m_guru_mapels', ManajemenGuruMapelController::class);
     Route::resource('m_kelas_siswas', ManajemenKelasSiswaController::class);
     Route::resource('siswa', SiswaController::class);
-    Route::resource('dnilai', SiswaController::class);
+    Route::resource('dnilai', DnilaiController::class);
 });
 
 Route::middleware('auth')->group(function () {

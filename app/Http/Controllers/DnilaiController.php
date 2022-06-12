@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dnilai;
+use App\Models\Siswa;
+use App\Models\Nilai;
+use App\Models\Mapel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +19,10 @@ class DnilaiController extends Controller
     public function index()
     {
         return view('dnilai.index', [
-            'dnilai' => DB::select('SELECT * FROM dnilai AS A ORDER BY A.created_at DESC')
+            'dnilai' => DB::select('SELECT * FROM dnilai AS A ORDER BY A.created_at DESC'),
+            'siswas' => DB::select('SELECT * FROM siswas'),
+            'nilais' => DB::select('SELECT * FROM nilai'),
+            'mapels' => DB::select('SELECT * FROM mapel'),
         ]);
     }
 
@@ -27,7 +33,11 @@ class DnilaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dnilai.create', [
+            'siswas' => DB::select('SELECT * FROM siswas'),
+            'nilais' => DB::select('SELECT * FROM nilai'),
+            'mapels' => DB::select('SELECT * FROM mapel'),
+        ]);
     }
 
     /**
@@ -38,7 +48,21 @@ class DnilaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'dnilai' => 'required|numeric',
+            'id_siswa' => 'required',
+            'id_nilai' => 'required',
+            'id_mapel' => 'required'
+        ]);
+
+        $dnilai = new Dnilai();
+        $dnilai->dnilai = $request->dnilai;
+        $dnilai->id_siswa = $request->id_siswa;
+        $dnilai->id_nilai = $request->id_nilai;
+        $dnilai->id_mapel = $request->id_mapel;
+        $dnilai->save();
+
+        return redirect()->route('dnilai.index')->with('status', 'Data pegawai berhasil ditambahkan');
     }
 
     /**
