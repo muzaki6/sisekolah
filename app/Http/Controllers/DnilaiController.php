@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Dnilai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DnilaiController extends Controller
 {
@@ -14,7 +15,9 @@ class DnilaiController extends Controller
      */
     public function index()
     {
-        //
+        return view('dnilai.index', [
+            'dnilai' => DB::select('SELECT * FROM dnilai AS A ORDER BY A.created_at DESC')
+        ]);
     }
 
     /**
