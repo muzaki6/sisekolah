@@ -29,34 +29,31 @@
                         <tbody>
                             @php $no = 1; @endphp
                             @foreach ($dnilai as $key => $dnil)
-                                @foreach ($siswas as $key => $siswa)
-                                    <tr>
-                                        {{-- <td scope="row">{{ $siswas + $key }}</td> --}}
-                                        <td>{{ $no++ }}</td>
-                                        <td>{{ $dnil->dnilai }}</td>
-                                        <td>{{ $siswa->nama }}</td>
-                                        <td>{{ $dnil->id_nilai }}</td>
-                                        <td>{{ $dnil->id_mapel }}</td>
-                                        <td class="text-center">
-                                            <form action="{{ route('dnilai.destroy', $dnil->id) }}" method="POST">
-                                                <a href="#" class="btn btn-success btn-sm"><i
-                                                        class="fa fa-eye"></i></a>
-                                                @can('dnil-edit')
-                                                    <a href="{{ route('dnil.edit', $dnil->id) }}"
-                                                        class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                @endcan
-                                                @csrf
-                                                @can('dnil-delete')
-                                                    @method('DELETE')
+                                <tr>
+                                    {{-- <td scope="row">{{ $siswas + $key }}</td> --}}
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $dnil->dnilai }}</td>
+                                    <td>{{ $dnil->nama }}</td>
+                                    <td>{{ $dnil->nilai }}</td>
+                                    <td>{{ $dnil->mapel }}</td>
+                                    <td class="text-center">
+                                        <form action="{{ route('dnilai.destroy', $dnil->id) }}" method="POST">
+                                            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                            {{-- @can('dnil-edit') --}}
+                                            <a href="{{ route('dnilai.edit', $dnil->id) }}"
+                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            {{-- @endcan --}}
+                                            @csrf
+                                            {{-- @can('dnil-delete') --}}
+                                            @method('DELETE')
 
-                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                            class="fa fa-trash"></i></button>
-                                                @endcan
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                            <button type="submit" class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                                    class="fa fa-trash"></i></button>
+                                            {{-- @endcan --}}
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

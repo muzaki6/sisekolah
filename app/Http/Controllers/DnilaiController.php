@@ -19,10 +19,11 @@ class DnilaiController extends Controller
     public function index()
     {
         return view('dnilai.index', [
-            'dnilai' => DB::select('SELECT * FROM dnilai AS A ORDER BY A.created_at DESC'),
-            'siswas' => DB::select('SELECT * FROM siswas'),
-            'nilais' => DB::select('SELECT * FROM nilai'),
-            'mapels' => DB::select('SELECT * FROM mapel'),
+            'dnilai' => DB::select('SELECT *
+            FROM dnilai AS A
+            LEFT JOIN siswas AS B ON A.id_siswa = B.id
+            LEFT JOIN nilai AS C ON A.id_nilai = C.id_nilai
+            LEFT JOIN mapel AS D ON A.id_mapel = D.id_mapel'),
         ]);
     }
 
@@ -84,7 +85,15 @@ class DnilaiController extends Controller
      */
     public function edit(Dnilai $dnilai)
     {
-        //
+        // $dnilai = Dnilai::all()
+        // return view('dnilai.edit', [
+        //     'siswas' => DB::select('SELECT * FROM siswas'),
+        //     'nilais' => DB::select('SELECT * FROM nilai'),
+        //     'mapels' => DB::select('SELECT * FROM mapel'),
+        // ]);
+
+        $dnilai = Dnilai::all();
+        return view('dnilai.edit', compact('dnilai'));
     }
 
     /**

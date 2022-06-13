@@ -10,35 +10,50 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header"><b>Data Entry Pegawai</b></div>
+                    <div class="card-header"><b>Edit Nilai</b></div>
                     <div class="card-body">
                         @component('components.error')
                         @endcomponent
-                        <form action="{{ route('pegawais.update', ['pegawai' => $pegawai->id_pegawai]) }}" method="post"
+                        <form action="{{ route('dnilai.update', ['dnilai' => $dnilai->id]) }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
+                            @csrf
                             <div class="form-group row mb-1">
-                                <label for="id_pegawai" class="col-sm-2 col-form-label">ID Pegawai</label>
+                                <label for="dnilai" class="col-sm-2 col-form-label">Nilai</label>
                                 <div class="col-sm-10">
-                                    <input value="{{ $pegawai->id_pegawai }}" id="id_pegawai" name="id_pegawai"
-                                        type="text" class="form-control" placeholder="Masukan ID Pegawai">
+                                    <input id="dnilai" name="dnilai" type="text" class="form-control"
+                                        placeholder="Masukan Nilai">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
-                                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                                <label for="siswa-option" class="col-sm-2 col-form-label">Nama Siswa</label>
                                 <div class="col-sm-10">
-                                    <input value="{{ $pegawai->nama }}" id="nama" name="nama" type="text"
-                                        class="form-control" placeholder="Masukan Nama">
+                                    <select class="form-control" id="siswa-option" name="id_siswa">
+                                        <option value="">Pilih Siswa</option>
+                                        @foreach ($siswas as $nmsiswas)
+                                            <option value="{{ $nmsiswas->id }}">{{ $nmsiswas->nama }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
-                                <label for="status-option" class="col-sm-2 col-form-label">Status Pegawai</label>
+                                <label for="nilai-option" class="col-sm-2 col-form-label">Jenis Nilai</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="status-option" name="id_status">
-                                        @foreach ($status as $sts)
-                                            <option value="{{ $sts->id_status }}"
-                                                {{ old('id_status', $pegawai->id_status) == $sts->id_status ? 'selected' : null }}>
-                                                {{ $sts->status }}</option>
+                                    <select class="form-control" id="nilai-option" name="id_nilai">
+                                        <option value="">Pilih Jenis Nilai</option>
+                                        @foreach ($nilais as $nilai)
+                                            <option value="{{ $nilai->id_nilai }}">{{ $nilai->nilai }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="mapel-option" class="col-sm-2 col-form-label">Mata Pelajaran</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="mapel-option" name="id_mapel">
+                                        <option value="">Pilih Mata Pelajaran</option>
+                                        @foreach ($mapels as $mapel)
+                                            <option value="{{ $mapel->id_mapel }}">{{ $mapel->mapel }}</option>
                                         @endforeach
                                     </select>
                                 </div>
