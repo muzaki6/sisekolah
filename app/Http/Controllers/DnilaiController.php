@@ -83,7 +83,7 @@ class DnilaiController extends Controller
      * @param  \App\Models\Dnilai  $dnilai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dnilai $dnilai)
+    public function edit(Dnilai $dnilai, Siswa $siswa)
     {
         // $dnilai = Dnilai::all()
         // return view('dnilai.edit', [
@@ -92,8 +92,7 @@ class DnilaiController extends Controller
         //     'mapels' => DB::select('SELECT * FROM mapel'),
         // ]);
 
-        $dnilai = Dnilai::all();
-        return view('dnilai.edit', compact('dnilai'));
+        return view('dnilai.edit', compact('dnilai', 'siswa'));
     }
 
     /**
@@ -103,9 +102,22 @@ class DnilaiController extends Controller
      * @param  \App\Models\Dnilai  $dnilai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dnilai $dnilai)
+    public function update(Request $request, Dnilai $dnilais)
     {
-        //
+        $request->validate([
+            'id' => 'required|numeric',
+            'dnilai' => 'required',
+            'id_siswa' => 'required',
+            'id_nilai' => 'required',
+            'id_mapel' => 'required'
+        ]);
+        $dnilais->dnilai = $request->dnilai;
+        $dnilais->id_siswa = $request->id_siswa;
+        $dnilais->id_nilai = $request->id_nilai;
+        $dnilais->id_mapel = $request->id_mapel;
+        $dnilais->save();
+
+        return redirect()->route('pegawais.index')->with('success', 'Data pegawai berhasil diubah');
     }
 
     /**
