@@ -83,16 +83,12 @@ class DnilaiController extends Controller
      * @param  \App\Models\Dnilai  $dnilai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dnilai $dnilai, Siswa $siswa)
+    public function edit(Dnilai $dnilai)
     {
-        // $dnilai = Dnilai::all()
-        // return view('dnilai.edit', [
-        //     'siswas' => DB::select('SELECT * FROM siswas'),
-        //     'nilais' => DB::select('SELECT * FROM nilai'),
-        //     'mapels' => DB::select('SELECT * FROM mapel'),
-        // ]);
-
-        return view('dnilai.edit', compact('dnilai', 'siswa'));
+        $siswas = Siswa::all();
+        $nilais = Nilai::all();
+        $mapels = Mapel::all();
+        return view('dnilai.edit', compact('dnilai', 'siswas', 'nilais', 'mapels'));
     }
 
     /**
@@ -102,22 +98,21 @@ class DnilaiController extends Controller
      * @param  \App\Models\Dnilai  $dnilai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dnilai $dnilais)
+    public function update(Request $request, Dnilai $dnilai)
     {
         $request->validate([
-            'id' => 'required|numeric',
             'dnilai' => 'required',
             'id_siswa' => 'required',
             'id_nilai' => 'required',
             'id_mapel' => 'required'
         ]);
-        $dnilais->dnilai = $request->dnilai;
-        $dnilais->id_siswa = $request->id_siswa;
-        $dnilais->id_nilai = $request->id_nilai;
-        $dnilais->id_mapel = $request->id_mapel;
-        $dnilais->save();
+        $dnilai->dnilai = $request->dnilai;
+        $dnilai->id_siswa = $request->id_siswa;
+        $dnilai->id_nilai = $request->id_nilai;
+        $dnilai->id_mapel = $request->id_mapel;
+        $dnilai->save();
 
-        return redirect()->route('pegawais.index')->with('success', 'Data pegawai berhasil diubah');
+        return redirect()->route('dnilai.index')->with('success', 'Data nilai berhasil diubah');
     }
 
     /**
@@ -128,6 +123,9 @@ class DnilaiController extends Controller
      */
     public function destroy(Dnilai $dnilai)
     {
-        //
+        $dnilai->delete();
+
+        return redirect()->route('dnilai.index')
+            ->with('status',  'Nilai berhasil dihapus');
     }
 }

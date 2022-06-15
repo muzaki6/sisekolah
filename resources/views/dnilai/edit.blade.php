@@ -20,29 +20,45 @@
                             <div class="form-group row mb-1">
                                 <label for="dnilai" class="col-sm-2 col-form-label">Nilai</label>
                                 <div class="col-sm-10">
-                                    <input value="" id="dnilai" name="dnilai" type="text" class="form-control"
-                                        placeholder="Masukan Nilai">
+                                    <input value="{{ $dnilai->dnilai }}" id="dnilai" name="dnilai" type="text"
+                                        class="form-control" placeholder="Masukan Nilai">
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="siswa-option" class="col-sm-2 col-form-label">Nama Siswa</label>
                                 <div class="col-sm-10">
-                                    <input value="" id="dnilai" name="dnilai" type="text" class="form-control"
-                                        placeholder="Masukan Nilai">
+                                    <select class="form-control" id="siswa-option" name="id_siswa">
+                                        @foreach ($siswas as $nmsiswa)
+                                            <option value="{{ $nmsiswa->id }}"
+                                                {{ old('id', $dnilai->id_siswa) == $nmsiswa->id ? 'selected' : null }}>
+                                                {{ $nmsiswa->nama }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
-                                <label for="siswa-option" class="col-sm-2 col-form-label">Jenis Nilai</label>
+                                <label for="nilai-option" class="col-sm-2 col-form-label">Jenis Nilai</label>
                                 <div class="col-sm-10">
-                                    <input value="" id="dnilai" name="dnilai" type="text" class="form-control"
-                                        placeholder="Masukan Nilai">
+                                    <select class="form-control" id="nilai-option" name="id_nilai">
+                                        @foreach ($nilais as $nmnilai)
+                                            <option value="{{ $nmnilai->id_nilai }}"
+                                                {{ old('id', $dnilai->id_nilai) == $nmnilai->id_nilai ? 'selected' : null }}>
+                                                {{ $nmnilai->nilai }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
-                                <label for="siswa-option" class="col-sm-2 col-form-label">Mata Pelajaran</label>
+                                <label for="mapel-option" class="col-sm-2 col-form-label">Mata Pelajaran</label>
                                 <div class="col-sm-10">
-                                    <input value="" id="dnilai" name="dnilai" type="text" class="form-control"
-                                        placeholder="Masukan Nilai">
+                                    <select class="form-control" id="mapel-option" name="id_mapel">
+                                        @foreach ($mapels as $nmmapel)
+                                            <option value="{{ $nmmapel->id_mapel }}"
+                                                {{ old('id', $dnilai->id_mapel) == $nmmapel->id_mapel ? 'selected' : null }}>
+                                                {{ $nmmapel->mapel }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group d-flex justify-content-end">
