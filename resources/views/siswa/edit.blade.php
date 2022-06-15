@@ -32,20 +32,48 @@
                                         placeholder="Masukan Nama" value="{{ $siswa->nama }}">
                                 </div>
                             </div>
-                            <div class="form-group row mb-1">
+                            {{-- <div class="form-group row mb-1">
                                 <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                                 <div class="col-sm-10">
                                     <input id="jenis_kelamin" name="jenis_kelamin" type="text" class="form-control"
                                         placeholder="Masukan Jenis Kelamin" value="{{ $siswa->jenis_kelamin }}">
                                 </div>
+                            </div> --}}
+                            <div class="form-group row mb-1">
+                                <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="jenis_kelamin" name="jenis_kelamin">
+                                        <option value="Laki-Laki"
+                                            {{ $siswa->jenis_kelamin == 'Laki-Laki' ? 'selected' : '' }}>
+                                            Laki-Laki
+                                        </option>
+                                        <option value="Perempuan"
+                                            {{ $siswa->jenis_kelamin == 'Perempuan' ? 'selected' : '' }}>
+                                            Perempuan
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group row mb-1">
+                                <label for="agama" class="col-sm-2 col-form-label">Agama</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" id="agama" name="agama">
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Budha">Budha</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {{-- <div class="form-group row mb-1">
                                 <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <input id="agama" name="agama" type="text" class="form-control"
                                         placeholder="Masukan Agama" value="{{ $siswa->agama }}">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row mb-1">
                                 <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                 <div class="col-sm-10">
@@ -57,7 +85,7 @@
                                 <label for="tahun_masuk" class="col-sm-2 col-form-label">Tahun Masuk</label>
                                 <div class="col-sm-10">
                                     <input id="tahun_masuk" name="tahun_masuk" type="text" class="form-control"
-                                        placeholder="Masukan Alamat" value="{{ $siswa->tahun_masuk }}">
+                                        placeholder="Masukan Tahun Masuk" value="{{ $siswa->tahun_masuk }}">
                                 </div>
                             </div>
                             <hr>

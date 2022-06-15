@@ -102,13 +102,21 @@ class SiswaController extends Controller
     public function update(Request $request, Siswa $siswa)
     {
         $request->validate([
-            'no_induk'      => 'required|max:10|unique:siswas',
-            'tahun_masuk'   => 'required|numeric',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+            'tahun_masuk' => 'required'
         ]);
+        $siswa->no_induk = $request->no_induk;
+        $siswa->nama = $request->nama;
+        $siswa->jenis_kelamin = $request->jenis_kelamin;
+        $siswa->agama = $request->agama;
+        $siswa->alamat = $request->alamat;
+        $siswa->tahun_masuk = $request->tahun_masuk;
+        $siswa->save();
 
-        $siswa->update($request->all());
-
-        return redirect()->route('siswa.index')->with('status', 'Data ' . $siswa->nama . ' berhasil diupdate');
+        return redirect()->route('siswa.index')->with('success', 'Data berhasil diubah');
     }
 
     /**
