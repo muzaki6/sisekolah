@@ -58,12 +58,24 @@
                                 <label for="agama" class="col-sm-2 col-form-label">Agama</label>
                                 <div class="col-sm-10">
                                     <select class="form-control" id="agama" name="agama">
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Katolik">Katolik</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Other">Other</option>
+                                        <option value="Islam" {{ $siswa->agama == 'Islam' ? 'selected' : '' }}>
+                                            Islam
+                                        </option>
+                                        <option value="Kristen" {{ $siswa->agama == 'Kristen' ? 'selected' : '' }}>
+                                            Kristen
+                                        </option>
+                                        <option value="Katolik" {{ $siswa->agama == 'Katolik' ? 'selected' : '' }}>
+                                            Katolik
+                                        </option>
+                                        <option value="Hindu" {{ $siswa->agama == 'Hindu' ? 'selected' : '' }}>
+                                            Hindu
+                                        </option>
+                                        <option value="Budha" {{ $siswa->agama == 'Budha' ? 'selected' : '' }}>
+                                            Budha
+                                        </option>
+                                        <option value="Other" {{ $siswa->agama == 'Other' ? 'selected' : '' }}>
+                                            Other
+                                        </option>
                                     </select>
                                 </div>
                             </div>
