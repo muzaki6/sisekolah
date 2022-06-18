@@ -67,7 +67,7 @@ class PegawaiController extends Controller
     public function update(Request $request, Pegawai $pegawai)
     {
         $request->validate([
-            'id_pegawai' => 'required|numeric|unique:pegawai',
+            //
             'nama' => 'required',
             'id_status' => 'required'
         ]);

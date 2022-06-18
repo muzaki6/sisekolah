@@ -111,8 +111,7 @@
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Kurikulum</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                    data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Data Mata Pelajaran:</h6>
                         <a class="collapse-item" href="{{ route('m_guru_mapels.create') }}">Data Entry</a>
@@ -175,18 +174,18 @@
                 </div>
             </li>
             <!-- Nav Item - Setting -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Setting</span></a>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Help -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Help</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

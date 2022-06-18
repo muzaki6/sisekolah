@@ -38,7 +38,7 @@
                                     <td>{{ $dnil->mapel }}</td>
                                     <td class="text-center">
                                         <form action="{{ route('dnilai.destroy', $dnil->id) }}" method="POST">
-                                            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                            {{-- <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a> --}}
                                             {{-- @can('dnil-edit') --}}
                                             <a href="{{ route('dnilai.edit', $dnil->id) }}"
                                                 class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>

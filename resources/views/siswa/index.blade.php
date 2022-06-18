@@ -42,7 +42,7 @@
                                     <td>{{ $siswa->tahun_masuk }}</td>
                                     <td class="text-center">
                                         <form action="{{ route('siswa.destroy', $siswa->id) }}" method="POST">
-                                            <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                            {{-- <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a> --}}
                                             @can('siswa-edit')
                                                 <a href="{{ route('siswa.edit', $siswa->id) }}"
                                                     class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
