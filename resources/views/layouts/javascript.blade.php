@@ -38,11 +38,12 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/home') }}">
-                <div class="sidebar-brand-text mx-3">{{ config('app.name', 'Laravel') }}</div>
+                <div class="sidebar-brand-text mx-3"><img class="navbar-brand"
+                        src="{{ asset('image/image-icon/logo2.png') }}" style="width: 140px;" alt=""></div>
             </a>
 
             <!-- Divider -->
@@ -113,7 +114,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Data Mata Pelajaran:</h6>
+                        <h6 class="collapse-header">Data Pengampu Mapel:</h6>
                         <a class="collapse-item" href="{{ route('m_guru_mapels.create') }}">Data Entry</a>
                         <a class="collapse-item" href="{{ route('m_guru_mapels.index') }}">Laporan</a>
                         <h6 class="collapse-header">Data Nilai:</h6>
@@ -353,7 +354,11 @@
         var myLineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["Bahasa Indonesia", "Matematika", "Bahasa Inggris", "Pendidikan Agama"],
+                labels: [
+                    @foreach ($mapel as $key => $mapels)
+                        "{{ $mapels->namamapel }}"
+                    @endforeach , "Matematika", "Bahasa Inggris", "Pendidikan Agama"
+                ],
                 datasets: [{
                     label: "Nilai",
                     lineTension: 0.3,
@@ -449,6 +454,46 @@
                     }
                 }
             }
+        });
+    </script>
+    <script>
+        // Pie Chart Example
+        var ctx = document.getElementById("myPieChartlo");
+        var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ["Laki-Laki", "Perempuan"],
+                datasets: [{
+                    data: [
+                        @foreach ($siswasa as $key => $sisa)
+                            {{ $sisa->siswaa }}
+                        @endforeach ,
+                        @foreach ($siswasb as $key => $sisb)
+                            {{ $sisb->siswab }}
+                        @endforeach
+                    ],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: false
+                },
+                cutoutPercentage: 80,
+            },
         });
     </script>
 </body>

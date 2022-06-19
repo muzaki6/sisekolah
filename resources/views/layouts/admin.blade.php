@@ -38,11 +38,15 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/home') }}">
-                <div class="sidebar-brand-text mx-3">{{ config('app.name', 'Laravel') }}</div>
+                <div class="sidebar-brand-text mx-3">
+                    <div class="sidebar-brand-text mx-3"><img class="navbar-brand"
+                            src="{{ asset('image/image-icon/logo2.png') }}" style="width: 140px;" alt="">
+                    </div>
+                </div>
             </a>
 
             <!-- Divider -->
@@ -113,7 +117,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Data Mata Pelajaran:</h6>
+                        <h6 class="collapse-header">Data Pengampu Mapel:</h6>
                         <a class="collapse-item" href="{{ route('m_guru_mapels.create') }}">Data Entry</a>
                         <a class="collapse-item" href="{{ route('m_guru_mapels.index') }}">Laporan</a>
                         <h6 class="collapse-header">Data Nilai:</h6>

@@ -34,11 +34,14 @@ class HomeController extends Controller
             'siswas' => DB::select('SELECT count(no_induk) AS "hitungsiswa" FROM siswas'),
             'pegawais' => DB::select('SELECT count(id_pegawai) AS "hitungpegawai" FROM pegawai'),
             'kelas' => DB::select('SELECT count(id_kelas) AS "hitungkelas" FROM kelas'),
+            'mapel' => DB::select('SELECT mapel AS "namamapel" FROM mapel WHERE mapel = "Bahasa Indonesia"'),
             'dnilai' => DB::select('SELECT round(avg(dnilai)) AS "hitungnilai" FROM dnilai'),
             'dnilaia' => DB::select('SELECT round(avg(dnilai)) AS "ratabindo" FROM dnilai AS A LEFT JOIN mapel AS B ON A.id_mapel = B.id_mapel WHERE B.mapel = "Bahasa Indonesia"'),
             'dnilaib' => DB::select('SELECT round(avg(dnilai)) AS "ratamat" FROM dnilai AS A LEFT JOIN mapel AS B ON A.id_mapel = B.id_mapel WHERE B.mapel = "Matematika"'),
             'dnilaic' => DB::select('SELECT round(avg(dnilai)) AS "ratapai" FROM dnilai AS A LEFT JOIN mapel AS B ON A.id_mapel = B.id_mapel WHERE B.mapel = "Pendidikan Agama Islam"'),
             'dnilaid' => DB::select('SELECT round(avg(dnilai)) AS "ratabing" FROM dnilai AS A LEFT JOIN mapel AS B ON A.id_mapel = B.id_mapel WHERE B.mapel = "Bahasa Inggris"'),
+            'siswasa' => DB::select('SELECT count(no_induk) AS "siswaa" FROM siswas WHERE jenis_kelamin = "Laki-Laki"'),
+            'siswasb' => DB::select('SELECT count(no_induk) AS "siswab" FROM siswas WHERE jenis_kelamin = "Perempuan"'),
         ]);
     }
 }
