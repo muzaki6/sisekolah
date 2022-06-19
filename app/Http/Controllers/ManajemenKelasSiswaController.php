@@ -29,7 +29,7 @@ class ManajemenKelasSiswaController extends Controller
             ->join('kelas', 'm_kelas_siswa.id_kelas', '=', 'kelas.id_kelas')
             ->select('m_kelas_siswa.*', 'siswas.*', 'kelas.*')
             ->orderBy('m_kelas_siswa.id_kelas_siswa')
-            ->paginate(5);
+            ->paginate(100);
         return view('m_kelas_siswas.index', compact('m_kelas_siswas'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

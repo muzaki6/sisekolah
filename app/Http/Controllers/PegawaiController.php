@@ -27,7 +27,7 @@ class PegawaiController extends Controller
             ->join('ref_status_pegawai', 'pegawai.id_status', '=', 'ref_status_pegawai.id_status')
             ->select('pegawai.id_pegawai', 'pegawai.nama', 'ref_status_pegawai.status')
             ->orderBy('pegawai.id_pegawai')
-            ->paginate(5);
+            ->paginate(100);
         return view('pegawais.index', compact('pegawais'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

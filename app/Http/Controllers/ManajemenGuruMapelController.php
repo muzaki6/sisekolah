@@ -31,7 +31,7 @@ class ManajemenGuruMapelController extends Controller
             ->join('mapel', 'm_guru_mapel.id_mapel', '=', 'mapel.id_mapel')
             ->select('m_guru_mapel.id_guru_mapel', 'pegawai.nama', 'mapel.mapel', 'kelas.kelas', 'kelas.jurusan', 'kelas.ruang')
             ->orderBy('m_guru_mapel.id_guru_mapel')
-            ->paginate(5);
+            ->paginate(100);
         return view('m_guru_mapels.index', compact('m_guru_mapels'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

@@ -22,7 +22,7 @@ class KelasController extends Controller
     public function index()
     {
         return view('kelass.index', [
-            'kelass' => Kelas::orderBy('created_at', 'asc')->paginate(10)
+            'kelass' => Kelas::orderBy('created_at', 'asc')->paginate(100)
         ]);
     }
 
