@@ -419,12 +419,13 @@
 <body class="antialiased" style="background-image: url('storage/image-background/background1.jpg')">
     <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-light">
         <!-- <a class="navbar-brand" href="#">Sistem Informasi Sekolah</a> -->
-        <img class="navbar-brand" src="{{ asset('image/image-icon/logo2.png') }}" style="width: 140px;" alt="">
+        <img class="navbar-brand" src="{{ asset('image/image-icon/logo2.png') }}" style="width: 140px;"
+            alt="">
         </div>
         <div class="collapse navbar-collapse col-md-2 justify-content-end" id="navbarScroll">
             <ul class="navbar-nav" style="--bs-scroll-height: 100px;">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item mx-2">
+                    {{-- <li class="nav-item mx-2">
                         <a class="nav-link " href="#">Beranda</a>
                     </li>
                     <li class="nav-item mx-2">
@@ -447,29 +448,40 @@
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="#">Galeri</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item mx-3">
-                        <div class="btn-group">
-                            <a class="nav-link btn " style="color: #0a2351;border: 1px solid #0a2351;" ;
-                                aria-current="page" href="{{ route('login') }}">Login</a>
-                            <a class="nav-link btn text-white" style="background:#0a2351; href=" #">Register</a>
-                        </div>
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ url('/home') }}"
+                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                            @else
+                                <div class="btn-group">
+                                    <a class="nav-link btn " style="color: #0a2351;border: 1px solid #0a2351;" ;
+                                        aria-current="page" href="{{ route('login') }}">Login</a>
+                                    @if (Route::has('register'))
+                                        <a class="nav-link btn text-white" style="background:#0a2351;"
+                                            href="{{ route('register') }}">Register</a>
+                                    @endif
+                                </div>
+                            @endauth
+                        @endif
                     </li>
                 </ul>
             </ul>
+        </div>
     </nav>
     <!-- <div class="container mt-5 mb-5 col-md-12 bg-success">
-    </div> -->
+                        </div> -->
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('image/image-icon/siswa.jpg') }}" class="d-block w-100 h-50" alt="...">
+                <img src="{{ asset('image/image-background/siswa.jpg') }}" class="d-block w-100 h-50" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <img src="{{ asset('image/image-background/siswa.jpg') }}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <img src="{{ asset('image/image-background/siswa.jpg') }}" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -483,7 +495,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container mt-3">
+    {{-- <div class="container mt-3">
         <div class="row">
             <div class="col-md-6">
                 <h3><b>Prakata Kepala Sekolah</b></h3>
@@ -580,8 +592,12 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="py-2 bg-white text-dark" style="height:40px;">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Sistem Informasi Sekolah - Kelompok 2</span>
+        </div>
     </div>
-    <div class="p-5 bg-secondary text-white" style="height:50px;"></div>
 </body>
 
 </html>

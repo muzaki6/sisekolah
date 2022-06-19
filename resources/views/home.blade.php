@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.javascript')
 
 @section('content')
     <div class="container-fluid">
@@ -96,7 +96,11 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Rata - Rata Nilai</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">88,56</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                @foreach ($dnilai as $key => $dnil)
+                                                    {{ $dnil->hitungnilai }}
+                                                @endforeach
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -117,7 +121,7 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                        <canvas id="myAreaChartlo"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -152,4 +156,5 @@
                 </div>
             </div>
         </div>
+        <!-- Page chart scripts -->
     @endsection
