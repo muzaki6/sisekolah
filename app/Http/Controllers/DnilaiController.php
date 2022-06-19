@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class DnilaiController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:dnilai-list|dnilai-create|dnilai-edit|dnilai-delete', ['only' => ['index', 'store']]);
+        $this->middleware('permission:dnilai-create', ['only' => ['create', 'store']]);
+        $this->middleware('permission:dnilai-edit', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:dnilai-delete', ['only' => ['destroy']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +26,7 @@ class DnilaiController extends Controller
     public function index()
     {
         return view('dnilai.index', [
-            'dnilai' => DB::select('SELECT *
+            'dnilai' => DB::select('SELECT A.id, A.dnilai, A.id_siswa, B.nama, A.id_nilai, C.nilai, A.id_mapel, D.mapel
             FROM dnilai AS A
             LEFT JOIN siswas AS B ON A.id_siswa = B.id
             LEFT JOIN nilai AS C ON A.id_nilai = C.id_nilai

@@ -39,18 +39,18 @@
                                     <td class="text-center">
                                         <form action="{{ route('dnilai.destroy', $dnil->id) }}" method="POST">
                                             {{-- <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a> --}}
-                                            {{-- @can('dnil-edit') --}}
-                                            <a href="{{ route('dnilai.edit', $dnil->id) }}"
-                                                class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                            {{-- @endcan --}}
+                                            @can('dnilai-edit')
+                                                <a href="{{ route('dnilai.edit', $dnil->id) }}"
+                                                    class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                            @endcan
                                             @csrf
-                                            {{-- @can('dnil-delete') --}}
-                                            @method('DELETE')
+                                            @can('dnilai-delete')
+                                                @method('DELETE')
 
-                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
-                                                    class="fa fa-trash"></i></button>
-                                            {{-- @endcan --}}
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"><i
+                                                        class="fa fa-trash"></i></button>
+                                            @endcan
                                         </form>
                                     </td>
                                 </tr>
